@@ -49,9 +49,8 @@ package com.leetcode.solution.removeDuplicatesFromSortedArray;
 public class Solution {
     public int k = 0;
     public int removeDuplicates(int[] nums) {
-
-        deletingDuplicates(nums);
         counting(nums);
+        deletingDuplicates(nums);
         sort(nums);
         sort(nums);
 
@@ -68,19 +67,11 @@ public class Solution {
 
     }
 
-    // нихуя не делает)
     public int[] sort(int[] nums) {
         boolean isSorted = false;
         while (!isSorted)
             isSorted = true;
         for (int i = 0; i < nums.length - 1; i++) {
-//                if (nums[i] > nums[i + 1]) {
-//                    isSorted = false;
-//
-//                    int tmp = nums[i];
-//                    nums[i] = nums[i + 1];
-//                    nums[i + 1] = tmp;
-//                }
             if(nums[i] == -1){
                 for (int j = i; j < nums.length-1; j++) {
                     int tmp = nums[j];
@@ -88,7 +79,7 @@ public class Solution {
                     nums[j + 1] = tmp;
                 }
             }
-            // нужно сказать чтобы он вернклся на одну позицию назад. Он пропускает одну единицу при свопе
+
         }
         return nums;
     }
