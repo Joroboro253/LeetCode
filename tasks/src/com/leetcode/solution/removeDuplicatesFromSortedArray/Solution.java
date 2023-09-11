@@ -53,7 +53,7 @@ public class Solution {
         deletingDuplicates(nums);
         counting(nums);
         sort(nums);
-
+        sort(nums);
 
 
         return k;
@@ -62,24 +62,33 @@ public class Solution {
     public void deletingDuplicates(int[] nums) {
         for (int i = 0; i < nums.length-2; i++) {
             if(nums[i] == nums[i+1]){
-                nums[i+1] = -1;
+                nums[i] = -1;
                 }
             }
 
     }
 
+    // нихуя не делает)
     public int[] sort(int[] nums) {
         boolean isSorted = false;
         while (!isSorted)
             isSorted = true;
         for (int i = 0; i < nums.length - 1; i++) {
-                if (nums[i] > nums[i + 1]) {
-                    isSorted = false;
-
-                    int tmp = nums[i];
-                    nums[i] = nums[i + 1];
-                    nums[i + 1] = tmp;
+//                if (nums[i] > nums[i + 1]) {
+//                    isSorted = false;
+//
+//                    int tmp = nums[i];
+//                    nums[i] = nums[i + 1];
+//                    nums[i + 1] = tmp;
+//                }
+            if(nums[i] == -1){
+                for (int j = i; j < nums.length-1; j++) {
+                    int tmp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = tmp;
                 }
+            }
+            // нужно сказать чтобы он вернклся на одну позицию назад. Он пропускает одну единицу при свопе
         }
         return nums;
     }
