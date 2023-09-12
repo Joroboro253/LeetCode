@@ -48,14 +48,29 @@ package com.leetcode.solution.removeDuplicatesFromSortedArray;
 // Нужно вернуть массив в порядке по возрастанию, и без дубликатов (дубликаты в конец и можно попробовать поставить 0)
 public class Solution {
     public int k = 0;
+
     public int removeDuplicates(int[] nums) {
-        counting(nums);
+        int sizeOfOldArray = counting(nums);
         deletingDuplicates(nums);
         sort(nums);
         sort(nums);
 
+        // тут выдаёт 10. Работает неверно
 
-        return k;
+        int[] newArr = CreateNewArray(nums, sizeOfOldArray);
+        for (int i = 0; i < sizeOfOldArray; i++) {
+            System.out.print("[" + newArr[i] + "] ");
+        }
+
+        return sizeOfOldArray;
+    }
+
+    private int[] CreateNewArray(int[] nums, int size) {
+        int[] newArray = new int[size];
+        for (int i = 0; i < size; i++) {
+                newArray[i] = nums[i];
+        }
+        return newArray;
     }
 
     public void deletingDuplicates(int[] nums) {
@@ -83,12 +98,13 @@ public class Solution {
         }
         return nums;
     }
-    public void counting(int[] nums){
+    public int counting(int[] nums){
         for (int i = 0; i < nums.length - 1; i++) {
             if(nums[i] >= nums[i+1]) {
                 k++;
             }
         }
 
+        return k;
     }
 }
