@@ -44,10 +44,8 @@ package com.leetcode.solution.removeDuplicatesFromSortedArray;
 //-100 <= nums[i] <= 100
 //nums is sorted in non-decreasing order.
 
-// Вернуть число уникальных элементов
-// Нужно вернуть массив в порядке по возрастанию, и без дубликатов (дубликаты в конец и можно попробовать поставить 0)
 public class Solution {
-//    public int k = 0;
+
     int count = 0;
     public int removeDuplicates(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
@@ -62,82 +60,4 @@ public class Solution {
         }
         return count;
     }
-//// Сортировка в начале не нужна
-////        sort(nums);
-//
-//        sort(nums);
-//        deletingDuplicates(nums, k);
-//        // Вторая сотировка, так как он теряет одну -1, когда меняет местами её с -1
-//        // Плохой пример с циклом
-//        while (nums[0] == -1){
-//            sort(nums);
-//        }
-//        int sizeOfOldArray = counting(nums);
-//
-//
-//
-//        // тут выдаёт 10. Работает неверно
-//
-////        int[] newArr = CreateNewArray(nums, sizeOfOldArray);
-////        for (int i = 0; i < sizeOfOldArray; i++) {
-////            System.out.print("[" + newArr[i] + "] ");
-////        }
-//
-//        return sizeOfOldArray;
-//    }
-//
-//    private int[] CreateNewArray(int[] nums, int size) {
-//        int[] newArray = new int[size];
-//        for (int i = 0; i < size; i++) {
-//                newArray[i] = nums[i];
-//        }
-//        return newArray;
-//    }
-//
-//    public void deletingDuplicates(int[] nums, int size) {
-//
-//
-//
-//        int[] newArr = CreateNewArray(nums, size);
-//        int j =0;
-//        for (int i = 0; i < nums.length-1; i++) {
-//            if(nums[i] != nums[i+1]){
-//                newArr[j++] = nums[i];
-//                }
-//            }
-//        newArr[j++] = nums[nums.length-1];
-//        for (int i = 0; ; i++) {
-//
-//        }
-//
-//    }
-//
-//    // теперь проблема здесь
-//    public int[] sort(int[] nums) {
-//        boolean isSorted = false;
-//        while (!isSorted)
-//            isSorted = true;
-//        for (int i = 0; i < nums.length - 1; i++) {
-//            if(nums[i] == -1){
-//                for (int j = i; j < nums.length-1; j++) {
-//                    int tmp = nums[j];
-//                    nums[j] = nums[j + 1];
-//                    nums[j + 1] = tmp;
-//                }
-//            }
-//
-//        }
-//        return nums;
-//    }
-//
-//    public int counting(int[] nums){
-//        for (int i = 0; i < nums.length - 1; i++) {
-//            if(nums[i] < nums[i+1]) {
-//                k++;
-//            }
-//        }
-//        // так как прога не досчитывает один эллемент
-//        k++;
-//        return k;
-//    }
 }
